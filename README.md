@@ -1,6 +1,6 @@
 # Twilio SMS Gateway
-SMS gateway plugin for Twilio. Twilio is not paid SMS gateway solution with a large amount of features. Use this plugin to use Twilio messaging service.
-Please note, this plugin uses Twilio Messaging, not Verify. Please visit https://www.twilio.com/ for more information.
+Twilio is a paid SMS gateway solution with a large amount of features. Use this plugin to integrate Twilio messaging service in Moodle.
+Please note, this plugin uses Twilio Messaging API, not Verify API. Please visit https://www.twilio.com/ for more information.
 
 ---
 
