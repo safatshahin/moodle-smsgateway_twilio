@@ -49,6 +49,7 @@ class hook_listener {
         );
         $mform->setType('account_sid', PARAM_TEXT);
         $mform->addRule('account_sid', get_string('maximumchars', '', 255), 'maxlength', 255);
+        $mform->addRule('account_sid', null, 'required');
         $mform->setDefault(
             elementName: 'account_sid',
             defaultValue: '',
@@ -62,6 +63,7 @@ class hook_listener {
         );
         $mform->setType('auth_token', PARAM_TEXT);
         $mform->addRule('auth_token', get_string('maximumchars', '', 255), 'maxlength', 255);
+        $mform->addRule('auth_token', null, 'required');
         $mform->setDefault(
             elementName: 'auth_token',
             defaultValue: '',
@@ -75,6 +77,7 @@ class hook_listener {
         );
         $mform->setType('twilio_phone_number', PARAM_TEXT);
         $mform->addRule('twilio_phone_number', get_string('maximumchars', '', 255), 'maxlength', 255);
+        $mform->addRule('twilio_phone_number', null, 'required');
         $mform->setDefault(
             elementName: 'twilio_phone_number',
             defaultValue: '',
