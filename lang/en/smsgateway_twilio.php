@@ -22,5 +22,9 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+$string['account_sid'] = 'Account SID';
+$string['auth_token'] = 'Auth Token';
 $string['pluginname'] = 'Twilio';
 $string['privacy:metadata'] = 'The Twilio SMS gateway plugin does not store any personal data.';
+$string['twilio_information'] = 'Complete the following fields using the information provided by Twilio';
+$string['twilio_phone_number'] = 'Twilio phone number';

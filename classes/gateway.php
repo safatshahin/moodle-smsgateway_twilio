@@ -16,11 +16,19 @@
 
 namespace smsgateway_twilio;
 
+require_once(__DIR__ . '/../extlib/Twilio/autoload.php');
+
+use Twilio\Exceptions\ConfigurationException;
+use Twilio\Exceptions\TwilioException;
+use Twilio\Rest\Client;
 use core_sms\manager;
 use core_sms\message;
 
 /**
  * Twilio SMS gateway.
+ *
+ * For more information: https://www.twilio.com/docs/messaging/quickstart/php.
+ * Library: https://github.com/twilio/twilio-php.
  *
  * @package    smsgateway_twilio
  * @copyright  2024 Safat Shahin <safat.shahin@moodle.com>
@@ -47,7 +55,23 @@ class gateway extends \core_sms\gateway {
                 countrycode: isset($config->countrycode) ?? null,
             );
 
-            // Send the sms.
+            $sid = $config->account_sid;
+            $token = $config->auth_token;
+            $twilio = new Client($sid, $token);
+            try {
+                $twilio->messages->create(
+                    to: $recipientnumber,
+                    options: [
+                        "from" => $config->twilio_phone_number,
+                        "body" => $message->content,
+                    ],
+                );
+                // It is also possible set up a status callback for a proper status.
+                // See: https://www.twilio.com/docs/messaging/guides/track-outbound-message-status.
+                $status = \core_sms\message_status::GATEWAY_SENT;
+            } catch (TwilioException $e) {
+                $status = \core_sms\message_status::GATEWAY_FAILED;
+            }
         }
 
         return $message->with(

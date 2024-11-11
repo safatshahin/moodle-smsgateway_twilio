@@ -25,6 +25,6 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'smsgateway_twilio';
-$plugin->version = 2024111100;
+$plugin->version = 2024111102;
 $plugin->requires = 2024100100;
 $plugin->maturity = MATURITY_STABLE;
