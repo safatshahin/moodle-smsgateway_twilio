@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<libraries>
+    <library>
+        <location>extlib/Twilio</location>
+        <name>Twilio</name>
+        <version>8.3.7</version>
+        <license>MIT</license>
+        <licenseversion>2.1+</licenseversion>
+    </library>
+</libraries>
